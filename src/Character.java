@@ -23,6 +23,12 @@ public class Character {
     public void setHp(int hp) {
         this.hp = hp;
     }
+
+    public void takeDamage(int damage) {
+        hp = hp - damage;
+        if (hp < 0) {
+            hp = 0;
+        }
+    }
+
 }
-
-
