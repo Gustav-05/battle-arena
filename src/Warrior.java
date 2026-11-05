@@ -6,13 +6,10 @@ public class Warrior extends Character {
     private static final int WARRIOR_MAX_DAMAGE = 15;
 
     public Warrior(String name) {
-        super(name, WARRIOR_MAX_HP);
+        super(name, WARRIOR_MAX_HP, WARRIOR_MIN_DAMAGE, WARRIOR_MAX_DAMAGE);
 
-        int minDamage = WARRIOR_MIN_DAMAGE;
-        int maxDamage = WARRIOR_MAX_DAMAGE;
+
 
     }
-
-
 
 }
