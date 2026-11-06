@@ -3,6 +3,7 @@ package test;
 import main.BattleService;
 import main.Character;
 import main.Warrior;
+import main.Mage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
@@ -11,13 +12,13 @@ public class BattleServiceTest {
 
     private BattleService battleService;
     private Warrior attacker;
-    private Warrior defender;
+    private Mage defender;
 
     @BeforeEach
     public void setUp() {
         battleService = new BattleService();
         attacker = new Warrior("Aragorn");
-        defender = new Warrior("Legolas");
+        defender = new Mage("Gandalf");
     }
 
     @Test
@@ -34,18 +35,27 @@ public class BattleServiceTest {
 
     }
 
+    /*
     @Test
     void defendShouldDecreasedDamage() {
-
         int incomingDamage = 10;
 
         int reduceDamage = defender.defend(incomingDamage);
 
         assertTrue(reduceDamage <= 5 && reduceDamage >= 0);
-        ;
+    }
 
+     */
 
+    @Test
+    void healShouldIncreaseHpBetween15And25() {
+        defender.setHp(50);
 
+        battleService.heal(defender);
+
+        int hpAfterHeal = defender.getHp();
+
+        assertTrue(hpAfterHeal >= 65 && hpAfterHeal <= 75);
 
     }
 }

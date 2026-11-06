@@ -12,4 +12,12 @@ public class BattleService {
         int reducedDamage = warrior.defend(incomingDamage);
         warrior.takeDamage(reducedDamage);
     }
+
+    public void heal(Mage mage) {
+        int healAmount = mage.heal();
+        mage.setHp(mage.getHp() + healAmount);
+
+        System.out.println(mage.getName() + " " + healAmount);
+
+    }
 }
