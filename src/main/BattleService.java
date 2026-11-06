@@ -20,4 +20,9 @@ public class BattleService {
         System.out.println(mage.getName() + " " + healAmount);
 
     }
+
+    public void doubleShot(Archer archer, Character defender) {
+        attack(archer, defender);
+        attack(archer, defender);
+    }
 }
