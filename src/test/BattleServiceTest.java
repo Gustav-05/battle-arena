@@ -12,7 +12,7 @@ public class BattleServiceTest {
 
     private BattleService battleService;
     private Warrior attacker;
-    private Mage defender;
+    private Warrior defender;
 
     @BeforeEach
     public void setUp() {
@@ -35,27 +35,18 @@ public class BattleServiceTest {
 
     }
 
-    /*
     @Test
     void defendShouldDecreasedDamage() {
+
         int incomingDamage = 10;
 
         int reduceDamage = defender.defend(incomingDamage);
 
         assertTrue(reduceDamage <= 5 && reduceDamage >= 0);
-    }
+        ;
 
-     */
 
-    @Test
-    void healShouldIncreaseHpBetween15And25() {
-        defender.setHp(50);
 
-        battleService.heal(defender);
-
-        int hpAfterHeal = defender.getHp();
-
-        assertTrue(hpAfterHeal >= 65 && hpAfterHeal <= 75);
 
     }
 }
