@@ -1,5 +1,7 @@
 package main;
 
+import java.util.Random;
+
 public class Warrior extends Character {
 
 
@@ -10,8 +12,15 @@ public class Warrior extends Character {
     public Warrior(String name) {
         super(name, WARRIOR_MAX_HP, WARRIOR_MIN_DAMAGE, WARRIOR_MAX_DAMAGE);
 
+    }
 
 
+    public int defend(int incomingDamage) {
+        Random randomDefend = new Random();
+
+        int reduction = randomDefend.nextInt(50, 101);
+
+        return incomingDamage * (100 - reduction) / 100;
     }
 
 }

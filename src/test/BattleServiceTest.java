@@ -10,8 +10,8 @@ import static org.junit.jupiter.api.Assertions.*;
 public class BattleServiceTest {
 
     private BattleService battleService;
-    private Character attacker;
-    private Character defender;
+    private Warrior attacker;
+    private Warrior defender;
 
     @BeforeEach
     public void setUp() {
@@ -31,6 +31,21 @@ public class BattleServiceTest {
         int actualDamage = hpBeforeAttack - hpAfterAttack;
 
         assertTrue(actualDamage >= 5 && actualDamage <= 15);
+
+    }
+
+    @Test
+    void defendShouldDecreasedDamage() {
+
+        int incomingDamage = 10;
+
+        int reduceDamage = defender.defend(incomingDamage);
+
+        assertTrue(reduceDamage <= 5 && reduceDamage >= 0);
+        ;
+
+
+
 
     }
 }

@@ -52,7 +52,4 @@ public class Character {
             hp = 0;
         }
     }
-
-
-
 }
