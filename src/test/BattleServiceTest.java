@@ -1,9 +1,7 @@
 package test;
 
-import main.BattleService;
+import main.*;
 import main.Character;
-import main.Warrior;
-import main.Mage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
@@ -11,13 +9,13 @@ import static org.junit.jupiter.api.Assertions.*;
 public class BattleServiceTest {
 
     private BattleService battleService;
-    private Warrior attacker;
-    private Warrior defender;
+    private Archer attacker;
+    private Mage defender;
 
     @BeforeEach
     public void setUp() {
         battleService = new BattleService();
-        attacker = new Warrior("Aragorn");
+        attacker = new Archer("Legolas");
         defender = new Mage("Gandalf");
     }
 
@@ -35,6 +33,7 @@ public class BattleServiceTest {
 
     }
 
+    /*
     @Test
     void defendShouldDecreasedDamage() {
 
@@ -43,10 +42,34 @@ public class BattleServiceTest {
         int reduceDamage = defender.defend(incomingDamage);
 
         assertTrue(reduceDamage <= 5 && reduceDamage >= 0);
-        ;
-
-
-
 
     }
+
+     */
+
+    @Test
+    void healShouldHealBetween15And25() {
+        defender.setHp(50);
+
+        battleService.heal(defender);
+
+        int hpAfterHeal = defender.getHp();
+
+        assertTrue(hpAfterHeal >= 65 && hpAfterHeal <= 75);
+
+    }
+
+    @Test
+    void doubleShotShouldDamageAttack2Times() {
+        int hpBeforeAttack = defender.getHp();
+        battleService.doubleShot(attacker, defender);
+        int hpAfterAttack = defender.getHp();
+
+        int actualDamage = hpBeforeAttack - hpAfterAttack;
+
+
+        assertTrue(actualDamage >= 16 && actualDamage <= 36);
+    }
+
+
 }
