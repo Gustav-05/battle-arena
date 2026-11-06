@@ -21,6 +21,7 @@ public class Warrior extends Character {
         Random randomDefend = new Random();
 
         int reduction = randomDefend.nextInt(WARRIOR_MIN_DEFEND, WARRIOR_MAX_DEFEND);
+        int reduction = randomDefend.nextInt(50, 101);
 
         return incomingDamage * (100 - reduction) / 100;
     }
