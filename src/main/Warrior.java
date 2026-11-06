@@ -8,6 +8,8 @@ public class Warrior extends Character {
     private static final int WARRIOR_MAX_HP = 130;
     private static final int WARRIOR_MIN_DAMAGE = 5;
     private static final int WARRIOR_MAX_DAMAGE = 15;
+    private static final int WARRIOR_MIN_DEFEND = 50;
+    private static final int WARRIOR_MAX_DEFEND = 101;
 
     public Warrior(String name) {
         super(name, WARRIOR_MAX_HP, WARRIOR_MIN_DAMAGE, WARRIOR_MAX_DAMAGE);
@@ -18,6 +20,7 @@ public class Warrior extends Character {
     public int defend(int incomingDamage) {
         Random randomDefend = new Random();
 
+        int reduction = randomDefend.nextInt(WARRIOR_MIN_DEFEND, WARRIOR_MAX_DEFEND);
         int reduction = randomDefend.nextInt(50, 101);
 
         return incomingDamage * (100 - reduction) / 100;

@@ -3,6 +3,7 @@ package test;
 import main.BattleService;
 import main.Character;
 import main.Warrior;
+import main.Mage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
@@ -17,7 +18,7 @@ public class BattleServiceTest {
     public void setUp() {
         battleService = new BattleService();
         attacker = new Warrior("Aragorn");
-        defender = new Warrior("Legolas");
+        defender = new Mage("Gandalf");
     }
 
     @Test
