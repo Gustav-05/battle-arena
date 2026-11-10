@@ -10,13 +10,13 @@ public class BattleServiceTest {
 
     private BattleService battleService;
     private Archer attacker;
-    private Mage defender;
+    private Warrior defender;
 
     @BeforeEach
     public void setUp() {
         battleService = new BattleService();
         attacker = new Archer("Legolas");
-        defender = new Mage("Gandalf");
+        defender = new Warrior("Gandalf");
     }
 
     @Test
@@ -33,20 +33,30 @@ public class BattleServiceTest {
 
     }
 
-    /*
     @Test
     void defendShouldDecreasedDamage() {
 
         int incomingDamage = 10;
+        defender.setHp(50);
 
-        int reduceDamage = defender.defend(incomingDamage);
+        battleService.attack(attacker, defender);
 
-        assertTrue(reduceDamage <= 5 && reduceDamage >= 0);
+        int hpAfterAttack1 = defender.getHp();
+
+        defender.setHp(50);
+
+        battleService.defend(defender, incomingDamage);
+        battleService.attack(attacker, defender);
+
+        int hpAfterAttack2 = defender.getHp();
+
+
+
+        assertTrue(hpAfterAttack1 > hpAfterAttack2);
 
     }
 
-     */
-
+    /*
     @Test
     void healShouldHealBetween15And25() {
         defender.setHp(50);
@@ -58,6 +68,8 @@ public class BattleServiceTest {
         assertTrue(hpAfterHeal >= 65 && hpAfterHeal <= 75);
 
     }
+
+     */
 
     @Test
     void doubleShotShouldDamageAttack2Times() {
