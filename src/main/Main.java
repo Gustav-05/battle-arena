@@ -1,5 +1,15 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-void main() {
+package main;
 
+public class Main {
+
+    public static void main(String[] args) {
+
+        BattleService battleService = new BattleService();
+
+        battleService.menu();
+        battleService.showCharacters();
+        battleService.selectCharacter();
+        battleService.showChosenCharacter();
+
+    }
 }
