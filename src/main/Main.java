@@ -4,12 +4,12 @@ public class Main {
 
     public static void main(String[] args) {
 
+        MenuService menuService = new MenuService();
         BattleService battleService = new BattleService();
 
-        battleService.menu();
-        battleService.showCharacters();
-        battleService.selectCharacter();
-        battleService.showChosenCharacter();
+        menuService.menu();
+        menuService.showCharacters();
+        Character player = menuService.showChosenCharacter();
 
     }
 }

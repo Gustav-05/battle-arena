@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class Warrior extends Character {
 
-
+    public static final String WARRIOR_NAME = "Aragorn";
     private static final int WARRIOR_MAX_HP = 130;
     private static final int WARRIOR_MIN_DAMAGE = 5;
     private static final int WARRIOR_MAX_DAMAGE = 15;
