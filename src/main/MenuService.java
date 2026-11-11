@@ -1,5 +1,6 @@
 package main;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class MenuService {
@@ -51,5 +52,19 @@ public class MenuService {
 
         System.out.println("Du valde ingen av karaktärerna");
         return null;
+    }
+
+    public Character getRandomCharacter() {
+        Character[] characters = getCharacter();
+
+        Random randomCharacter = new Random();
+        int randomIndex = randomCharacter.nextInt(characters.length);
+
+        return characters[randomIndex];
+    }
+
+    public void showRandomCharacter() {
+
+        System.out.println("Datorns val: " + getRandomCharacter().getName());
     }
 }

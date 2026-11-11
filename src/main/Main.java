@@ -10,6 +10,8 @@ public class Main {
         menuService.menu();
         menuService.showCharacters();
         Character player = menuService.showChosenCharacter();
+        Character computer = menuService.getRandomCharacter();
+        menuService.showRandomCharacter();
 
     }
 }
