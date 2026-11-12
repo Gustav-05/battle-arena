@@ -15,14 +15,16 @@ public class Mage extends Character {
         super(name, MAGE_MAX_HP, MAGE_MIN_DAMAGE, MAGE_MAX_DAMAGE);
     }
 
+    @Override
+    public void useSpecialAbility() {
+        int healAmount = heal();
+        setHp(getHp() + healAmount);
+    }
+
     public int heal() {
         Random randomHeal = new Random();
 
         int healAmount = randomHeal.nextInt(MAGE_MIN_HEAL, MAGE_MAX_HEAL);
         return healAmount;
     }
-
-
-
-
 }

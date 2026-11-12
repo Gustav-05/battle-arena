@@ -11,7 +11,11 @@ public class Main {
         menuService.showCharacters();
         Character player = menuService.showChosenCharacter();
         Character computer = menuService.getRandomCharacter();
-        menuService.showRandomCharacter();
+        String computerName = computer.getName();
+        menuService.showRandomCharacter(computerName);
+        String playerName = player.getName();
+
+        menuService.showCharacterChoices(playerName);
 
     }
 }

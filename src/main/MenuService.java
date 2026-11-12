@@ -63,8 +63,17 @@ public class MenuService {
         return characters[randomIndex];
     }
 
-    public void showRandomCharacter() {
+    public void showRandomCharacter(String computerName) {
 
-        System.out.println("Datorns val: " + getRandomCharacter().getName());
+        System.out.println("Datorns val: " + computerName);
+    }
+
+    public void showCharacterChoices(String name) {
+
+        System.out.println(name + " val möjligheter");
+        for (Action action : Action.values()) {
+            System.out.println(action);
+        }
+
     }
 }

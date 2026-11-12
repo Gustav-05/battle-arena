@@ -2,7 +2,7 @@ package main;
 
 import java.util.Random;
 
-public class Character {
+public  abstract class   Character {
 
     private String name;
     private int hp;
@@ -52,4 +52,6 @@ public class Character {
             hp = 0;
         }
     }
+
+    public abstract void useSpecialAbility();
 }
