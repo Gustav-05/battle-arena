@@ -26,7 +26,7 @@ public class BattleServiceTest {
         int incomingDamage = 10;
         int hpBeforeAttack = defender.getHp();
 
-        battleService.attack(attacker, defender, incomingDamage);
+        battleService.attack(attacker, defender);
 
         int hpAfterAttack = defender.getHp();
 
@@ -44,7 +44,7 @@ public class BattleServiceTest {
         defender.setHp(50);
 
         battleService.defend(defender);
-        battleService.attack(attacker, defender, incomingDamage);
+        battleService.attack(attacker, defender);
 
         assertTrue(defender.getHp() > 45);
         System.out.println(incomingDamage);
@@ -67,7 +67,7 @@ public class BattleServiceTest {
     void doubleShotShouldDamageAttack2Times() {
         int incomingDamage = 10;
         int hpBeforeAttack = defender.getHp();
-        battleService.doubleShot(attacker, defender, incomingDamage);
+        battleService.doubleShot(attacker, defender);
         int hpAfterAttack = defender.getHp();
 
         int actualDamage = hpBeforeAttack - hpAfterAttack;
@@ -81,7 +81,7 @@ public class BattleServiceTest {
         int incomingDamage = 10;
         defender.setHp(5);
 
-        battleService.attack(attacker, defender, incomingDamage);
+        battleService.attack(attacker, defender);
 
         assertEquals(0, defender.getHp());
     }

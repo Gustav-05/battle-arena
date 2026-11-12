@@ -11,4 +11,5 @@ public class Archer extends Character{
     public Archer(String name) {
         super(name, ARCHER_MAX_HP, ARCHER_MIN_DAMAGE, ARCHER_MAX_DAMAGE);
     }
+
 }

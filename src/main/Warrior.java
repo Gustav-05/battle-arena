@@ -25,6 +25,10 @@ public class Warrior extends Character {
         this.defending = defending;
     }
 
+    @Override
+    public void useSpecialAbility() {
+        setDefending(true);
+    }
 
     public int defend(int incomingDamage) {
         Random randomDefend = new Random();

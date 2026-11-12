@@ -1,14 +1,12 @@
 package main;
 
-import java.util.Scanner;
-
 public class BattleService {
 
-    public void attack(Character attacker, Character defender, int incomingDamage) {
+    public void attack(Character attacker, Character defender) {
         int damage = attacker.getRandomDamage();
 
         if (defender instanceof Warrior warrior && warrior.isDefending()) {
-            damage = warrior.defend(incomingDamage);
+            damage = warrior.defend(damage);
             warrior.setDefending(false);
         }
 
@@ -18,20 +16,23 @@ public class BattleService {
         defender.takeDamage(damage);
     }
 
-    public void defend(Warrior warrior) {
-        warrior.setDefending(true);
+    public void doubleShot(Archer archer, Character defender) {
+        attack(archer, defender);
+        attack(archer, defender);
     }
 
-    public void heal(Mage mage) {
-        int healAmount = mage.heal();
-        mage.setHp(mage.getHp() + healAmount);
+    public void performAction(Action action, Character attacker, Character defender) {
 
-        System.out.println(mage.getName() + " " + healAmount);
+        switch (action) {
 
+            case ATTACK:
+                attack(attacker, defender);
+                break;
+
+            case SPECIAL_ABILITY:
+                attacker.useSpecialAbility();
+                break;
+        }
     }
 
-    public void doubleShot(Archer archer, Character defender, int incomingDamage) {
-        attack(archer, defender, incomingDamage);
-        attack(archer, defender, incomingDamage);
-    }
 }
