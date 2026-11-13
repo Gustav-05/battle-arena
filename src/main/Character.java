@@ -53,5 +53,5 @@ public  abstract class   Character {
         }
     }
 
-    public abstract void useSpecialAbility();
+    public abstract void useSpecialAbility(Character defender);
 }

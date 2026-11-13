@@ -16,9 +16,10 @@ public class Mage extends Character {
     }
 
     @Override
-    public void useSpecialAbility() {
+    public void useSpecialAbility(Character defender) {
         int healAmount = heal();
-        setHp(getHp() + healAmount);
+        setHp(Math.min(getHp() + healAmount, MAGE_MAX_HP));
+
     }
 
     public int heal() {

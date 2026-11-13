@@ -16,11 +16,6 @@ public class BattleService {
         defender.takeDamage(damage);
     }
 
-    public void doubleShot(Archer archer, Character defender) {
-        attack(archer, defender);
-        attack(archer, defender);
-    }
-
     public void performAction(Action action, Character attacker, Character defender) {
 
         switch (action) {
@@ -30,7 +25,7 @@ public class BattleService {
                 break;
 
             case SPECIAL_ABILITY:
-                attacker.useSpecialAbility();
+                attacker.useSpecialAbility(defender);
                 break;
         }
     }

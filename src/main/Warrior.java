@@ -26,7 +26,7 @@ public class Warrior extends Character {
     }
 
     @Override
-    public void useSpecialAbility() {
+    public void useSpecialAbility(Character defender) {
         setDefending(true);
     }
 
