@@ -20,8 +20,8 @@ public class Mage extends Character {
         int healAmount = heal();
         setHp(Math.min(getHp() + healAmount, MAGE_MAX_HP));
 
-        System.out.println(getName() + " healade sig själv " + healAmount);
-        System.out.println(getName() + " " + getHp() + " hp");
+        System.out.println("\n" + getName() + " healade sig själv med " + healAmount  + " hp");
+        System.out.println(getName() + " nya hp är " + getHp());
 
     }
 
@@ -32,8 +32,4 @@ public class Mage extends Character {
         return healAmount;
     }
 
-    @Override
-    public String showSpecialAblity() {
-        return super.showSpecialAblity() + " healade sig själv " + heal() + "hp";
-    }
 }

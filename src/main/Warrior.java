@@ -28,6 +28,9 @@ public class Warrior extends Character {
     @Override
     public void useSpecialAbility(Character defender) {
         setDefending(true);
+
+        System.out.println("\n" + getName() + " tog fram en sköld, försvarar nästa attack");
+
     }
 
     public int defend(int incomingDamage) {
@@ -37,9 +40,5 @@ public class Warrior extends Character {
         return incomingDamage * (100 - reduction) / 100;
     }
 
-    @Override
-    public String showSpecialAblity() {
-        return super.showSpecialAblity() + " tog fram en sköld, försvarar nästa attack";
-    }
 
 }

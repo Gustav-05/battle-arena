@@ -13,7 +13,7 @@ public class BattleService {
             warrior.setDefending(false);
         }
 
-        System.out.println(attacker.getName() + " attackerar " + defender.getName());
+        System.out.println("\n" + attacker.getName() + " attackerar " + defender.getName());
         System.out.println(attacker.getName() + " skadade " + damage);
 
 
@@ -41,9 +41,7 @@ public class BattleService {
         }
     }
 
-    public void performAction(Character attacker, Character defender) {
-
-        Action action = selectAbility();
+    public void performAction(Action action, Character attacker, Character defender) {
 
         switch (action) {
 
@@ -65,6 +63,21 @@ public class BattleService {
         }
         else {
             return Action.SPECIAL_ABILITY;
+        }
+    }
+
+    public boolean isGameOver(Character player, Character computer) {
+
+        return player.getHp() <= 0 || computer.getHp() <= 0;
+    }
+
+    public void showGameOver(Character player, Character computer) {
+        if (player.getHp() <= 0) {
+            System.out.println("Spelet över");
+            System.out.println(computer.getName() + " vann!");
+        } else {
+            System.out.println("Spelet över");
+            System.out.println(player.getName() + " vann!");
         }
     }
 
