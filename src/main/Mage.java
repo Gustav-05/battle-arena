@@ -16,9 +16,13 @@ public class Mage extends Character {
     }
 
     @Override
-    public void useSpecialAbility() {
+    public void useSpecialAbility(Character defender) {
         int healAmount = heal();
-        setHp(getHp() + healAmount);
+        setHp(Math.min(getHp() + healAmount, MAGE_MAX_HP));
+
+        System.out.println(getName() + " healade sig själv " + healAmount);
+        System.out.println(getName() + " " + getHp() + " hp");
+
     }
 
     public int heal() {
@@ -26,5 +30,10 @@ public class Mage extends Character {
 
         int healAmount = randomHeal.nextInt(MAGE_MIN_HEAL, MAGE_MAX_HEAL);
         return healAmount;
+    }
+
+    @Override
+    public String showSpecialAblity() {
+        return super.showSpecialAblity() + " healade sig själv " + heal() + "hp";
     }
 }

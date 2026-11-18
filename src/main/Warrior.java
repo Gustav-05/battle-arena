@@ -26,7 +26,7 @@ public class Warrior extends Character {
     }
 
     @Override
-    public void useSpecialAbility() {
+    public void useSpecialAbility(Character defender) {
         setDefending(true);
     }
 
@@ -35,6 +35,11 @@ public class Warrior extends Character {
 
         int reduction = randomDefend.nextInt(WARRIOR_MIN_DEFEND, WARRIOR_MAX_DEFEND);
         return incomingDamage * (100 - reduction) / 100;
+    }
+
+    @Override
+    public String showSpecialAblity() {
+        return super.showSpecialAblity() + " tog fram en sköld, försvarar nästa attack";
     }
 
 }

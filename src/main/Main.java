@@ -15,7 +15,15 @@ public class Main {
         menuService.showRandomCharacter(computerName);
         String playerName = player.getName();
 
-        menuService.showCharacterChoices(playerName);
+        menuService.showStartBattle();
+
+        while (true) {
+            menuService.showCharacterChoices(playerName);
+            battleService.performAction(player, computer);
+            battleService.getRandomAction();
+        }
+
+
 
     }
 }

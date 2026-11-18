@@ -2,6 +2,8 @@ package main;
 
 import java.util.Random;
 
+import static main.Action.SPECIAL_ABILITY;
+
 public  abstract class   Character {
 
     private String name;
@@ -53,5 +55,9 @@ public  abstract class   Character {
         }
     }
 
-    public abstract void useSpecialAbility();
+    public abstract void useSpecialAbility(Character defender);
+
+    public String showSpecialAblity() {
+        return "Du valde Special förmåga ";
+    }
 }

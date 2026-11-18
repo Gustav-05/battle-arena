@@ -12,4 +12,14 @@ public class Archer extends Character{
         super(name, ARCHER_MAX_HP, ARCHER_MIN_DAMAGE, ARCHER_MAX_DAMAGE);
     }
 
+    @Override
+    public void useSpecialAbility(Character defender) {
+        int damage = explosiveArrow();
+        defender.takeDamage(damage);
+    }
+
+    public int explosiveArrow() {
+        return getRandomDamage() * 2;
+    }
+
 }
