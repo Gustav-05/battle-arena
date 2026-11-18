@@ -16,6 +16,10 @@ public class Archer extends Character{
     public void useSpecialAbility(Character defender) {
         int damage = explosiveArrow();
         defender.takeDamage(damage);
+
+        System.out.println("\n" + getName() + " tar fram eld pil");
+        System.out.println(getName() + " skadade " + damage);
+        System.out.println(defender.getName() + " " + defender.getHp() + " hp");
     }
 
     public int explosiveArrow() {

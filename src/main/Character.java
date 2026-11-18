@@ -2,7 +2,6 @@ package main;
 
 import java.util.Random;
 
-import static main.Action.SPECIAL_ABILITY;
 
 public  abstract class   Character {
 
@@ -20,10 +19,6 @@ public  abstract class   Character {
 
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public int getHp() {
@@ -57,7 +52,4 @@ public  abstract class   Character {
 
     public abstract void useSpecialAbility(Character defender);
 
-    public String showSpecialAblity() {
-        return "Du valde Special förmåga ";
-    }
 }

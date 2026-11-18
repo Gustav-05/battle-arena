@@ -71,10 +71,12 @@ public class MenuService {
     public void showCharacterChoices(String name) {
 
         System.out.println(name + " val möjligheter");
+
+
         int count = 0;
         for (Action action : Action.values()) {
             count += 1;
-            System.out.println(count + ": " + action);
+            System.out.println(count + ": " + action.getDisplayName());
         }
 
     }
