@@ -37,4 +37,9 @@ public class Warrior extends Character {
         return incomingDamage * (100 - reduction) / 100;
     }
 
+    @Override
+    public String showSpecialAblity() {
+        return super.showSpecialAblity() + " tog fram en sköld, försvarar nästa attack";
+    }
+
 }

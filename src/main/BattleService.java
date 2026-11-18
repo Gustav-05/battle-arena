@@ -1,5 +1,8 @@
 package main;
 
+import java.util.Random;
+import java.util.Scanner;
+
 public class BattleService {
 
     public void attack(Character attacker, Character defender) {
@@ -13,10 +16,34 @@ public class BattleService {
         System.out.println(attacker.getName() + " attackerar " + defender.getName());
         System.out.println(attacker.getName() + " skadade " + damage);
 
+
         defender.takeDamage(damage);
+
+        System.out.println(defender.getName() + " " + defender.getHp() + " hp");
     }
 
-    public void performAction(Action action, Character attacker, Character defender) {
+    public Action selectAbility() {
+        Scanner scanner = new Scanner(System.in);
+
+        int choiceAbility = scanner.nextInt();
+
+        switch (choiceAbility) {
+
+            case 1:
+                return Action.ATTACK;
+
+            case 2:
+                return Action.SPECIAL_ABILITY;
+
+            default:
+                System.out.println("Invalid choice");
+                return selectAbility();
+        }
+    }
+
+    public void performAction(Character attacker, Character defender) {
+
+        Action action = selectAbility();
 
         switch (action) {
 
@@ -27,6 +54,17 @@ public class BattleService {
             case SPECIAL_ABILITY:
                 attacker.useSpecialAbility(defender);
                 break;
+        }
+    }
+
+    public Action getRandomAction() {
+        Random random = new Random();
+
+        if (random.nextBoolean()) {
+            return Action.ATTACK;
+        }
+        else {
+            return Action.SPECIAL_ABILITY;
         }
     }
 

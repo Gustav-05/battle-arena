@@ -43,7 +43,7 @@ public class MenuService {
         for (Character character: getCharacter()) {
 
             if (chosenCharacter.equalsIgnoreCase(character.getName())) {
-                System.out.println("Vald karaktär: " + character.getName());
+                System.out.println("Vald karaktär: " + character.getName() + " " + character.getHp() + " hp");
 
                 return character;
 
@@ -71,9 +71,15 @@ public class MenuService {
     public void showCharacterChoices(String name) {
 
         System.out.println(name + " val möjligheter");
+        int count = 0;
         for (Action action : Action.values()) {
-            System.out.println(action);
+            count += 1;
+            System.out.println(count + ": " + action);
         }
 
+    }
+
+    public void showStartBattle() {
+        System.out.println("\nBattle arena har startat");
     }
 }
