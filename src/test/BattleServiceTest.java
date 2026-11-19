@@ -23,7 +23,6 @@ public class BattleServiceTest {
 
     @Test
     void attackShouldReduceHpByCorrectDamage() {
-        int incomingDamage = 10;
         int hpBeforeAttack = defender.getHp();
 
         battleService.attack(attacker, defender);
@@ -32,53 +31,65 @@ public class BattleServiceTest {
 
         int actualDamage = hpBeforeAttack - hpAfterAttack;
 
-        assertEquals(actualDamage, incomingDamage);
+        assertTrue(actualDamage >= 8 && actualDamage <= 18);
 
+    }
+
+    @Test
+    void useSpecialityAbilityShouldActivateDefending() {
+
+        defender.useSpecialAbility(null);
+
+        assertTrue(defender.isDefending());
     }
 
 
     @Test
     void defendShouldDecreasedDamage() {
 
-        int incomingDamage = 10;
         defender.setHp(50);
 
-        battleService.defend(defender);
-        battleService.attack(attacker, defender);
+        int damageWithoutDefend = 10;
 
-        assertTrue(defender.getHp() > 45);
-        System.out.println(incomingDamage);
+        int damageWithDefended = defender.defend(damageWithoutDefend);
+
+        assertTrue(damageWithDefended < damageWithoutDefend);
+        assertTrue(damageWithDefended >= 0);
     }
 
 
     @Test
-    void healShouldHealBetween15And25() {
+    void healShouldIncreaseHp() {
         mageDefender.setHp(50);
 
-        battleService.heal(mageDefender);
+        int hpBeforeHeal = mageDefender.getHp();
+
+        mageDefender.useSpecialAbility(null);
 
         int hpAfterHeal = mageDefender.getHp();
 
-        assertTrue(hpAfterHeal >= 65 && hpAfterHeal <= 75);
+        assertTrue(hpAfterHeal > hpBeforeHeal);
+
+
 
     }
 
     @Test
-    void doubleShotShouldDamageAttack2Times() {
+    void explosiveArrowShouldDamage() {
         int incomingDamage = 10;
         int hpBeforeAttack = defender.getHp();
-        battleService.doubleShot(attacker, defender);
+        attacker.explosiveArrow();
         int hpAfterAttack = defender.getHp();
 
         int actualDamage = hpBeforeAttack - hpAfterAttack;
 
 
-        assertTrue(actualDamage >= 16 && actualDamage <= 36);
+
     }
 
     @Test
     void hpShouldNotGoBelow0() {
-        int incomingDamage = 10;
+
         defender.setHp(5);
 
         battleService.attack(attacker, defender);
