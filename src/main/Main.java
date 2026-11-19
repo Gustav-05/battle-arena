@@ -1,11 +1,16 @@
 package main;
 
+import main.serverclient.Client;
+
+import java.io.IOException;
+
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         MenuService menuService = new MenuService();
         BattleService battleService = new BattleService();
+        Client client = new Client();
 
         while (true) {
             menuService.menu();
@@ -31,10 +36,15 @@ public class Main {
             }
 
             battleService.showGameOver(player, computer);
+
+            Character result = battleService.winner(player, computer);
+            client.sendMatchData(playerName, player, computer, result);
+
+
+
+
         }
 
-
-
-
     }
+
 }
