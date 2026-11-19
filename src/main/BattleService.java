@@ -81,4 +81,14 @@ public class BattleService {
         }
     }
 
+    public Character winner(Character player, Character computer) {
+        if (player.getHp() <= 0) {
+            return computer;
+        }
+        else if (computer.getHp() <= 0) {
+            return player;
+        }
+
+    }
+
 }
