@@ -16,6 +16,8 @@ public class Server {
 
     public static void main(String[] args) {
 
+        List<String> matchResults = new ArrayList<>();
+
         try (
                 ServerSocket serverSocket = new ServerSocket(5000)
         ) {
@@ -23,34 +25,41 @@ public class Server {
             System.out.println("Waiting for client");
 
 
-            {
-                List<String> matchResults = new ArrayList<>();
 
-                while (true) {
-                    Socket socket = serverSocket.accept();
-                    BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-                    String data;
+            while (true) {
 
-                    while ((data = in.readLine()) != null) {
-                        matchResults.add(data);
+                Socket socket = serverSocket.accept();
+                BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
-                        String[] matchData = data.split(";");
+                String data;
 
-                        String playerName = matchData[0];
-                        String playerCharacter = matchData[1];
-                        String computerCharacter = matchData[2];
-                        String result = matchData[3];
+                while ((data = in.readLine()) != null) {
 
-                        System.out.println("Spelare namn: " + matchData[0]);
-                        System.out.println("Spelare karaktär: " + matchData[1]);
-                        System.out.println("Dator karaktär: " + matchData[2]);
-                        System.out.println("Vinnare: " + matchData[3]);
+                    matchResults.add(data);
+                    String[] matchData = data.split(";");
 
-                    }
+                    String playerName = matchData[0];
+                    String playerCharacter = matchData[1];
+                    String computerCharacter = matchData[2];
+                    String result = matchData[3];
+
+                    Files.write(
+                            Path.of("results.txt"),
+                            List.of(
+                                    "Spelare: " + playerName,
+                                    "Spelarens karaktär: " + playerCharacter,
+                                    "Datorns karaktär: " + computerCharacter,
+                                    "Vinnare: " + result,
+                                    "-----------------------"
+                            ),
+                            StandardOpenOption.CREATE,
+                            StandardOpenOption.APPEND
+                    );
 
 
                 }
 
+                socket.close();
 
 
 
