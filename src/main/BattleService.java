@@ -85,7 +85,7 @@ public class BattleService {
         if (player.getHp() <= 0) {
             return computer;
         }
-        else if (computer.getHp() <= 0) {
+        else {
             return player;
         }
 

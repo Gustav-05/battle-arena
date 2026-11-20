@@ -41,8 +41,6 @@ public class Main {
             client.sendMatchData(playerName, player, computer, result);
 
 
-
-
         }
 
     }

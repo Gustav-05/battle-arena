@@ -20,8 +20,16 @@ public class Client {
     }
 
     public void sendMatchData(String playerName, Character playerCharacter, Character computerCharacter, Character result) {
-        out.println(playerName + ";" + playerCharacter.getName() + ";" + computerCharacter.getName() + ";" + result.getName());
+
+        String data =
+                playerName + ";" +
+                        playerCharacter.getName() + ";" +
+                        computerCharacter.getName() + ";" +
+                        result.getName();
+
+
+        System.out.println("Sending data " + data);
+
+        out.println(data);
     }
-
-
 }

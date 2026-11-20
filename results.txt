@@ -1,0 +1,6 @@
+
+Spelare: Legolas
+Spelarens karaktär: Legolas
+Datorns karaktär: Aragorn
+Vinnare: Legolas
+-----------------------
