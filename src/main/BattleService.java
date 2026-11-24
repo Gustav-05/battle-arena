@@ -8,9 +8,9 @@ public class BattleService {
     public void attack(Character attacker, Character defender) {
         int damage = attacker.getRandomDamage();
 
-        if (defender instanceof Warrior warrior && warrior.isDefending()) {
-            damage = warrior.defend(damage);
-            warrior.setDefending(false);
+        if (defender instanceof Defendable defendable && defendable.isDefending()) {
+            damage = defendable.defend(damage);
+            defendable.setDefending(false);
         }
 
         System.out.println("\n" + attacker.getName() + " attackerar " + defender.getName());
@@ -25,20 +25,23 @@ public class BattleService {
     public Action selectAbility() {
         Scanner scanner = new Scanner(System.in);
 
-        int choiceAbility = scanner.nextInt();
 
-        switch (choiceAbility) {
 
-            case 1:
+        while (true) {
+            int choiceAbility = scanner.nextInt();
+
+            if (choiceAbility == 1) {
                 return Action.ATTACK;
-
-            case 2:
+            } else if (choiceAbility == 2) {
                 return Action.SPECIAL_ABILITY;
+            }
 
-            default:
-                System.out.println("Invalid choice");
-                return selectAbility();
+            System.out.println("Felaktig input");
+
+
         }
+
+
     }
 
     public void performAction(Action action, Character attacker, Character defender) {
