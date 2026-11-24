@@ -8,3 +8,7 @@ Spelarens karaktär: Aragorn
 Datorns karaktär: Aragorn
 Vinnare: Aragorn
 -----------------------
+Spelarens karaktär: Gandalf
+Datorns karaktär: Legolas
+Vinnare: Legolas
+-----------------------
