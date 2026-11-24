@@ -38,7 +38,7 @@ public class Main {
             battleService.showGameOver(player, computer);
 
             Character result = battleService.winner(player, computer);
-            client.sendMatchData(playerName, player, computer, result);
+            client.sendMatchData(player, computer, result);
 
 
         }

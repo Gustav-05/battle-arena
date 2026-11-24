@@ -17,7 +17,7 @@ public class Archer extends Character{
         int damage = explosiveArrow();
         defender.takeDamage(damage);
 
-        System.out.println("\n" + getName() + " tar fram eld pil");
+        System.out.println("\n" + getName() + " skjuter en eldpil");
         System.out.println(getName() + " skadade " + damage);
         System.out.println(defender.getName() + " " + defender.getHp() + " hp");
     }

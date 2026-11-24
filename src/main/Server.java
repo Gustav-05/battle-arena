@@ -38,15 +38,13 @@ public class Server {
                     matchResults.add(data);
                     String[] matchData = data.split(";");
 
-                    String playerName = matchData[0];
-                    String playerCharacter = matchData[1];
-                    String computerCharacter = matchData[2];
-                    String result = matchData[3];
+                    String playerCharacter = matchData[0];
+                    String computerCharacter = matchData[1];
+                    String result = matchData[2];
 
                     Files.write(
                             Path.of("results.txt"),
                             List.of(
-                                    "Spelare: " + playerName,
                                     "Spelarens karaktär: " + playerCharacter,
                                     "Datorns karaktär: " + computerCharacter,
                                     "Vinnare: " + result,

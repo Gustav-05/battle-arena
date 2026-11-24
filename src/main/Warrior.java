@@ -2,7 +2,7 @@ package main;
 
 import java.util.Random;
 
-public class Warrior extends Character {
+public class Warrior extends Character implements Defendable {
 
     public static final String WARRIOR_NAME = "Aragorn";
     private static final int WARRIOR_MAX_HP = 130;

@@ -9,6 +9,7 @@ public  abstract class   Character {
     private int hp;
     private int minDamage;
     private int maxDamage;
+    private final Random randomDamage = new Random();
 
     public Character(String name, int hp, int minDamage, int maxDamage) {
         this.name = name;
@@ -38,7 +39,6 @@ public  abstract class   Character {
     }
 
     public int getRandomDamage() {
-        Random randomDamage = new Random();
         return randomDamage.nextInt(getMinDamage(), getMaxDamage() + 1);
     }
 

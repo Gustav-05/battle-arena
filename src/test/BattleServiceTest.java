@@ -45,9 +45,7 @@ public class BattleServiceTest {
 
 
     @Test
-    void defendShouldDecreasedDamage() {
-
-        defender.setHp(50);
+    void defendShouldDecreaseDamage() {
 
         int damageWithoutDefend = 10;
 
@@ -76,12 +74,16 @@ public class BattleServiceTest {
 
     @Test
     void explosiveArrowShouldDamage() {
-        int incomingDamage = 10;
+
         int hpBeforeAttack = defender.getHp();
-        attacker.explosiveArrow();
+
+        attacker.useSpecialAbility(defender);
+
         int hpAfterAttack = defender.getHp();
 
         int actualDamage = hpBeforeAttack - hpAfterAttack;
+
+        assertTrue(actualDamage >= 16 && actualDamage <= 36);
 
 
 

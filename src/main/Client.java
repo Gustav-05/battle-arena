@@ -2,13 +2,10 @@ package main.serverclient;
 
 import main.Character;
 
-import javax.imageio.IIOException;
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
-import java.util.Scanner;
+
 
 public class Client {
 
@@ -19,16 +16,12 @@ public class Client {
         out = new PrintWriter(socket.getOutputStream(), true);
     }
 
-    public void sendMatchData(String playerName, Character playerCharacter, Character computerCharacter, Character result) {
+    public void sendMatchData(Character playerCharacter, Character computerCharacter, Character result) {
 
         String data =
-                playerName + ";" +
                         playerCharacter.getName() + ";" +
                         computerCharacter.getName() + ";" +
                         result.getName();
-
-
-        System.out.println("Sending data " + data);
 
         out.println(data);
     }

@@ -4,3 +4,7 @@ Spelarens karaktär: Legolas
 Datorns karaktär: Aragorn
 Vinnare: Legolas
 -----------------------
+Spelarens karaktär: Aragorn
+Datorns karaktär: Aragorn
+Vinnare: Aragorn
+-----------------------
