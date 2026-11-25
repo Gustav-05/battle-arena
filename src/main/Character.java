@@ -10,7 +10,7 @@ public  abstract class   Character {
     private int minDamage;
     private int maxDamage;
     private final int MINIMUM_HP = 0;
-    private final Random randomDamage = new Random();
+    private static final Random randomDamage = new Random();
 
     public Character(String name, int hp, int minDamage, int maxDamage) {
         this.name = name;

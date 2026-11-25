@@ -6,6 +6,7 @@ public class Archer extends Character{
     private static final int ARCHER_MAX_HP = 105;
     private static final int ARCHER_MIN_DAMAGE = 8;
     private static final int ARCHER_MAX_DAMAGE = 18;
+    private static final int DOUBLE_DAMAGE = 2;
 
 
     public Archer(String name) {
@@ -23,7 +24,7 @@ public class Archer extends Character{
     }
 
     public int explosiveArrow() {
-        return getRandomDamage() * 2;
+        return getRandomDamage() * DOUBLE_DAMAGE;
     }
 
 }
