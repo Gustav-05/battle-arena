@@ -1,5 +1,6 @@
 package main;
 
+import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -8,7 +9,7 @@ public class MenuService {
     public void menu() {
         System.out.println("Välkommen till Battle Arena");
         System.out.println("---------------------------");
-        System.out.println("Välj din karaktär ");
+
     }
 
     public static Character[] getCharacter() {
@@ -29,29 +30,40 @@ public class MenuService {
         }
     }
 
-    public String selectCharacter() {
+    public Character selectCharacter() {
         Scanner scanner = new Scanner(System.in);
-        String chooseCharacter = scanner.nextLine().trim();
 
-        return chooseCharacter;
+        Character[] characters = getCharacter();
+        int choiceCharacter = 0;
+
+        while (choiceCharacter < 1 || choiceCharacter > characters.length) {
+            System.out.println("Välj en karaktär (1-" + characters.length + ")");
+
+            try {
+                choiceCharacter = scanner.nextInt();
+                if (choiceCharacter < 1 || choiceCharacter > characters.length) {
+                    System.out.println("Ogiltigt val, försök igen");
+                }
+            }catch (InputMismatchException e) {
+                System.out.println("Du måste ange en siffra");
+                scanner.nextLine();
+            }
+        }
+
+
+        return characters[choiceCharacter - 1];
+
     }
 
     public Character showChosenCharacter() {
 
-        String chosenCharacter = selectCharacter();
+        Character chosenCharacter = selectCharacter();
 
-        for (Character character: getCharacter()) {
+        System.out.println("Vald karaktär: " + chosenCharacter.getName() + " " + chosenCharacter.getHp() + " hp");
 
-            if (chosenCharacter.equalsIgnoreCase(character.getName())) {
-                System.out.println("Vald karaktär: " + character.getName() + " " + character.getHp() + " hp");
+        return chosenCharacter;
 
-                return character;
 
-            }
-        }
-
-        System.out.println("Du valde ingen av karaktärerna");
-        return null;
     }
 
     public Character getRandomCharacter() {

@@ -1,5 +1,6 @@
 package main;
 
+import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -25,23 +26,24 @@ public class BattleService {
     public Action selectAbility() {
         Scanner scanner = new Scanner(System.in);
 
-
-
         while (true) {
-            int choiceAbility = scanner.nextInt();
 
-            if (choiceAbility == 1) {
-                return Action.ATTACK;
-            } else if (choiceAbility == 2) {
-                return Action.SPECIAL_ABILITY;
+            try {
+                int choiceAbility = scanner.nextInt();
+
+                if (choiceAbility == 1) {
+                    return Action.ATTACK;
+                } else if (choiceAbility == 2) {
+                    return Action.SPECIAL_ABILITY;
+                }
+
+                System.out.println("Felaktigt val, välj 1 eller 2");
+            }catch (InputMismatchException e) {
+                System.out.println("Du måste ange en siffra");
+                scanner.nextLine();
             }
 
-            System.out.println("Felaktig input");
-
-
         }
-
-
     }
 
     public void performAction(Action action, Character attacker, Character defender) {

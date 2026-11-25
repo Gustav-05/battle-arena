@@ -32,4 +32,6 @@ public class Mage extends Character {
         return healAmount;
     }
 
+
+
 }

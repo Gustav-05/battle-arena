@@ -22,9 +22,6 @@ public class Server {
                 ServerSocket serverSocket = new ServerSocket(5000)
         ) {
             System.out.println("Server is running");
-            System.out.println("Waiting for client");
-
-
 
             while (true) {
 
@@ -58,9 +55,6 @@ public class Server {
                 }
 
                 socket.close();
-
-
-
             }
 
         } catch (IOException e) {

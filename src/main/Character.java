@@ -9,6 +9,7 @@ public  abstract class   Character {
     private int hp;
     private int minDamage;
     private int maxDamage;
+    private final int MINIMUM_HP = 0;
     private final Random randomDamage = new Random();
 
     public Character(String name, int hp, int minDamage, int maxDamage) {
@@ -45,8 +46,8 @@ public  abstract class   Character {
 
     public void takeDamage(int damage) {
         hp = hp - damage;
-        if (hp < 0) {
-            hp = 0;
+        if (hp < MINIMUM_HP) {
+            hp = MINIMUM_HP;
         }
     }
 
